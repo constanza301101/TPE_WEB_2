@@ -1,5 +1,6 @@
 {include file="header.tpl"}
-<!--TABLA CON TODOS LOS PRODUCTOS-->
+<!--SELECTOR DE MARCA PARA FILTRAR-->
+{include file="select-mark.tpl"}
 <section class="contenedor_table">
     <table class="table">
         <caption class="titulo_table">{$titulo}</caption>

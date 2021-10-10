@@ -1,11 +1,9 @@
-
 .resaltar{
     background-color: rgb(211, 211, 211);
 }
 
 .contenedor_table{
     width: 100%;
-    padding: 3% 0%;  
 }
 
 .table{
@@ -61,31 +59,6 @@ input, button{
     margin: 2%;
 }
 
-.contenedorfilas{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 20%;
-}
-
-.filas{
-    width: 25%;
-    margin: 2%;
-    text-align: center;
-}
-
-.filas:hover{
-    background-color: rgb(211, 211, 211);
-}
-
-.fotoproducto{
-    width: 100%;
-}
-
-article{
-    margin-bottom: 10%;
-}
-
 h1{
     font-size: 10px;
     text-align: center;
@@ -95,65 +68,36 @@ h1{
     padding: 2%;
 }
 
-h2, h3, h4{
-    padding-top: 3%; 
-}
-
-h2, h4{
-    font-weight: normal;
-    text-transform: uppercase;
-}
-
-h3, h4{
-    font-size: 5px;
-}
-
-h2{
-    font-size: 6px;
-}
-
 @media only screen and (min-width: 600px){
     .table{
-        width: 50%;
+        width: 60%;
     }
-    
+
     .titulo_table{
         font-size: 20px;
     }
-    
+
     .btnBorrar, th, td{
         font-size: 16px;
     }
-    
+
     form{
         margin: 2% 0;
         text-align: center;
     }
-    
+
     input, button{
         padding: 0.5%;
         font-size: 14px;
     }
-    
+
     .input{
         width: 10%;
         margin: 0;
     }
-    
+
     h1{
         font-size: 25px;
-        
-    }
-    
-    .filas{
-        width: 15%;
     }
 
-    h3, h4{
-        font-size: 13px;
-    }
-    
-    h2{
-        font-size: 15px;
-    }
-}
+} 
