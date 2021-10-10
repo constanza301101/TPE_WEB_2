@@ -12,14 +12,10 @@ class ProductsView{
             $this->titleEdit = "Editar producto";
             $this->titleMark = "Tabla de marcas";
         }
-        //REDIRECCIONA LAS CONSTANTES PARA RUTEO AL HOME
-        function ShowHomeLocation(){
-            header("Location: ".BASE_URL."home");
+        function ShowHomeLocation($action){
+            header("Location: ".BASE_URL.$action);
         }
-        //REDIRECCIONA LAS CONSTANTES PARA RUTEO AL HOME DE MARCAS
-        function ShowHomeMarks(){
-            header("Location: ".BASE_URL."mark");
-        }
+        
         //MUESTRA EL HOME
         function ShowHome($products, $marks, $mark_id){
             $smarty = new Smarty();
