@@ -19,7 +19,8 @@
                     <td>{$producto->precio}</td>
                     <td>{$producto->stock}</td>
                     <td>{$producto->descripcion}</td>
-                </tr>   
+                    <td class="excepcion"><button type="button"><a href="itemDetail/{$producto->id}">ver más</a></button></td>
+                </tr> 
             {/foreach}
         </tbody>
     </table>

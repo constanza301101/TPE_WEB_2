@@ -18,4 +18,11 @@
             // muestro el template 
             $smarty->display('templates/marks.tpl');
         }
+          //VISTA PARA EDITAR UNA MARCA
+          function ShowEditMark($mark){
+            $smarty = new Smarty();
+            $smarty->assign('mark', $mark);
+            // muestro el template 
+            $smarty->display('templates/editMark.tpl');  
+        }
     }
