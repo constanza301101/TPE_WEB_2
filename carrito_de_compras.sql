@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-10-2021 a las 16:51:17
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.6
+-- Tiempo de generación: 14-10-2020 a las 16:29:32
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,19 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `marca` (
   `id_marca` int(11) NOT NULL,
-  `marca` varchar(200) NOT NULL,
-  `producto` varchar(200) NOT NULL
+  `marca` varchar(100) NOT NULL,
+  `categoria` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `marca`
 --
 
-INSERT INTO `marca` (`id_marca`, `marca`, `producto`) VALUES
+INSERT INTO `marca` (`id_marca`, `marca`, `categoria`) VALUES
 (1, 'donadonna', 'Bijouterie Online'),
 (2, 'Lunera acero', 'bijouterie mayorista'),
 (3, 'gotergood', 'pulseras y brazaletes para hombres'),
-(4, 'Rapsodia', 'variedad de accesorios');
+(4, 'rapsodia', 'variedad de accesorios');
 
 -- --------------------------------------------------------
 
@@ -51,7 +51,7 @@ INSERT INTO `marca` (`id_marca`, `marca`, `producto`) VALUES
 
 CREATE TABLE `producto` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(200) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
   `precio` int(11) NOT NULL,
   `stock` int(11) NOT NULL,
   `descripcion` varchar(200) NOT NULL,
@@ -63,15 +63,14 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `precio`, `stock`, `descripcion`, `id_marca`) VALUES
-(1, 'pulsera', 205, 23, 'pulsera elegante', 4),
-(2, 'colita fringes', 100, 8, 'ajuste delicado', 4),
-(3, 'aros square', 300, 11, 'ideal para ir a una quinta', 1),
-(4, 'collar bull', 300, 5, 'genial para todos los dias', 1),
-(5, 'Collar Square', 350, 16, 'Ideal para fiesta de noche', 2),
-(6, 'Aros Hanna', 500, 5, 'Aros abridores de oro', 3),
-(7, 'Pulsera T&M', 450, 18, 'Ideal para una entrevista', 3),
-(8, 'Anillos', 150, 14, 'Anillos de pareja', 1),
-(9, 'Tobillera', 420, 22, 'Ideal para la playa', 2);
+(1, 'pulsera', 205, 23, 'pulsera elegante', 1),
+(2, 'aros', 100, 20, 'aros perfecto para fiesta de noche', 2),
+(3, 'pulsera de cuentas', 200, 15, 'colores bien brillantes', 3),
+(4, 'colita fringes', 100, 8, 'ajuste delicado', 4),
+(5, 'aros square', 300, 5, 'ideal para ir a una quinta', 1),
+(6, 'mix choker+colgante', 300, 3, 'oferta imperdible', 2),
+(7, 'collar bull', 300, 5, 'genial para todos los dias', 3),
+(8, 'Collar zafiro', 240, 23, 'el colla de la marca', 4);
 
 -- --------------------------------------------------------
 
@@ -81,9 +80,16 @@ INSERT INTO `producto` (`id`, `nombre`, `precio`, `stock`, `descripcion`, `id_ma
 
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
-  `mail` varchar(200) NOT NULL,
-  `password` varchar(200) NOT NULL
+  `email` varchar(50) NOT NULL,
+  `password` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `email`, `password`) VALUES
+(1, 'cotymar@gmail.com', '$2y$10$zJCL282zDJdwSfggMMHSNuikf0hxDZiwz9KckRW/G8D/ACxo8buq2');
 
 --
 -- Índices para tablas volcadas
@@ -99,7 +105,46 @@ ALTER TABLE `marca`
 -- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_marca` (`id_marca`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `marca`
+--
+ALTER TABLE `marca`
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `producto`
+--
+ALTER TABLE `producto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `producto`
+--
+ALTER TABLE `producto`
+  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_marca`) REFERENCES `marca` (`id_marca`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

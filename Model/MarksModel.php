@@ -1,5 +1,7 @@
 <?php
+
     class MarksModel{
+
         private $db;
         //CREO LA CONEXIÓN CON LA BASE DE DATOS
         function __construct(){
@@ -33,4 +35,4 @@
             $sentencia->execute(array($mark,$categori,$mark_id));
         }
     }
-?> 
+?>

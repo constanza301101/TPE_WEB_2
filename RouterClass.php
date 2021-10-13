@@ -37,7 +37,7 @@ class Route {
         $controller = $this->controller;  
         $method = $this->method;
         $params = $this->params;
-
+       
         (new $controller())->$method($params);
     }
 }
@@ -64,7 +64,7 @@ class Router {
         if ($this->defaultRoute != null)
             $this->defaultRoute->run();
     }
-
+    
     public function addRoute ($url, $verb, $controller, $method) {
         $this->routeTable[] = new Route($url, $verb, $controller, $method);
     }

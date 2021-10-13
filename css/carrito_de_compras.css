@@ -1,7 +1,3 @@
-.resaltar{
-    background-color: rgb(211, 211, 211);
-}
-
 .contenedor_table{
     width: 100%;
 }
@@ -15,6 +11,16 @@
     justify-content: space-between;
 }
 
+.table_productos{
+    width: 70%;
+    border-collapse: collapse;
+    text-align: center;
+    margin: auto 15% auto auto;
+    margin-bottom: 4%;
+    justify-content: space-between;
+}
+
+
 .titulo_table{
     padding: 2% 0;
     margin: 2% 0;
@@ -23,7 +29,6 @@
 }
 
 th, td{
-    font-size: 10px;
     padding: 2%;
     border: 1px solid rgb(170, 170, 170);
     border-collapse: collapse;
@@ -32,10 +37,22 @@ th, td{
 
 .excepcion{ 
     border: inset 0pt;
+    padding: 0;
 }
 
 .btn{
     margin: 1%;
+}
+/*TITULO LOGOUT*/
+.cerarSesion{
+    margin: 2% 0 0 87%;
+    text-transform: uppercase;
+    color: grey;
+}
+/*BOTON LOGOUT*/
+.btn_logout{
+    float: right;
+    margin: 1% 5% 0 0;
 }
 
 button{
@@ -47,7 +64,7 @@ form{
     text-align: center;
 }
 
-input, button{
+button{
     padding: 1%;
     text-align: center;
     text-transform: capitalize;
@@ -57,6 +74,49 @@ input, button{
 .input{
     width: 80%;
     margin: 2%;
+    text-align: center;
+}
+
+select{
+    height: 33px;
+}
+
+/*MENSAJE DE ALERTA DE ELIMINADO DE UNA MARCA*/
+.close {
+    display: none;
+}
+
+#alert{
+    background-color: rgb(243, 193, 193);
+    padding: 2%;
+    margin: 2% 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(155, 17, 17);
+}
+
+.sowAlert{
+    width: 20px;
+    font-size: 20px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    color: rgb(155, 17, 17);
+}
+
+/*MENSAJE DE CONTRASEÑA INCORRECTA*/
+h2{
+    background-image: url(../images/fondomármolnegro.jpg);
+    background-repeat: no-repeat;
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 2%;
+    margin: 2% 0;
 }
 
 h1{
@@ -64,40 +124,42 @@ h1{
     text-align: center;
     text-transform: uppercase;
     color: rgb(85, 85, 85);
-    background-image: url(../images/fondomármol.jpg);
+    background-image: url(../images/fondo.jpg);
     padding: 2%;
+    margin: 2% 0;
 }
 
-@media only screen and (min-width: 600px){
-    .table{
-        width: 60%;
-    }
 
+@media only screen and (min-width: 600px){
+    
+    .table{
+        width: 70%;
+    }
+    
     .titulo_table{
         font-size: 20px;
     }
-
-    .btnBorrar, th, td{
-        font-size: 16px;
-    }
-
+    
     form{
         margin: 2% 0;
         text-align: center;
     }
-
+    
     input, button{
         padding: 0.5%;
         font-size: 14px;
     }
-
+    
     .input{
         width: 10%;
         margin: 0;
     }
-
+    
     h1{
         font-size: 25px;
     }
-
-} 
+    /*MENSAJE DE CONTRASEÑA INCORRECTA*/
+    h2{
+        font-size: 25px;
+    }
+}

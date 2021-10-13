@@ -1,45 +1,29 @@
 <?php
 
-require_once "./libs/smarty/Smarty.class.php";
+    require_once "./libs/smarty/Smarty.class.php";
 
-class ProductsView{
+    class ProductsView{
 
-    private $title;
+        private $title;
         private $titleEdit;
-
+        
         function __construct(){
             $this->title = "Tabla de productos";
             $this->titleEdit = "Editar producto";
             $this->titleMark = "Tabla de marcas";
         }
-
+        //REDIRECCIONA LAS CONSTANTES PARA RUTEO 
         function ShowLocation($action){
             header("Location: ".BASE_URL.$action);
         }
-        
         //MUESTRA EL HOME
-        function ShowHome($products, $marks, $mark_id){
+        function ShowHome($products, $marks){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->title);
             $smarty->assign('productos', $products);
             $smarty->assign('marks', $marks);
-            $smarty->assign('marks_id', $mark_id);
             // muestro el template 
             $smarty->display('templates/products.tpl'); 
-        }
-        //MUESTRA EL LOGIN
-        function ShowLogin(){
-            $smarty = new Smarty();
-            $smarty->display('templates/loginProduct.tpl'); 
-        }
-        //MUESTRA LA PAGINA PARA EL ADMIN
-        function ShowLoginUsername($products, $marks){
-            $smarty = new Smarty();
-            $smarty->assign('titulo', $this->title);
-            $smarty->assign('productos', $products);
-            $smarty->assign('marks', $marks);
-            // muestro el template 
-            $smarty->display('templates/loginUsername.tpl'); 
         }
         //VISTA PARA EDITAR UN PRODUCTO
         function ShowEditProduct($product, $marks){
@@ -56,7 +40,7 @@ class ProductsView{
             $smarty->assign('producto', $product);
             $smarty->assign('mark', $mark);
             // muestro el template 
-            $smarty->display('templates/itemDetail.tpl');
+            $smarty->display('templates/itemDetail.tpl'); 
         }
     }
 ?>
