@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2020 a las 16:29:32
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.2.33
+-- Tiempo de generación: 20-11-2021 a las 23:04:40
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,6 +43,7 @@ INSERT INTO `marca` (`id_marca`, `marca`, `categoria`) VALUES
 (3, 'gotergood', 'pulseras y brazaletes para hombres'),
 (4, 'Rapsodia', 'variedad de accesorios'),
 (5, 'Tiffany & Co.', 'agregada desde la pagina');
+
 -- --------------------------------------------------------
 
 --
@@ -91,11 +92,11 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `email`, `password`) VALUES
 INSERT INTO `usuario` (`id`, `email`, `password`, `admin`) VALUES
 (1, 'cotymar@gmail.com', '$2y$10$zJCL282zDJdwSfggMMHSNuikf0hxDZiwz9KckRW/G8D/ACxo8buq2', 1),
 (2, 'usuario@publico', '$2y$10$zJCL282zDJdwSfggMMHSNuikf0hxDZiwz9KckRW/G8D/ACxo8buq2', 0),
 (3, 'nuevo@publico', '$2y$10$2zE98Ld1qoyvldSyucCKYOda2CcVVvUAYUIBJyeyMZlzg8f.haE8i', 0);
+
 --
 -- Índices para tablas volcadas
 --
@@ -133,7 +134,7 @@ ALTER TABLE `marca`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
