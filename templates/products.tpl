@@ -34,4 +34,13 @@
         </tbody>
     </table>
 </section> 
+<nav >
+<ul class="navCompaginacion">
+    {foreach from=$paginacion item=indice}
+        <li class="liCompagnacion">
+            <a class="linkCompaginacion" href="?pagina={$indice}">{$indice}</a>
+        </li>
+    {/foreach}    
+</ul>
+</nav>
 {include file="footer.tpl"}

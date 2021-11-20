@@ -52,5 +52,11 @@
             $sentencia->execute([$mark_id]);
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
+        //BUSCA PRODUCTOS CON UN LIMITE DESDE QUE PRODUCTO Y CUANTOS RESULTADOS
+        function GetProductsByLimit($desde, $productoPorPagina){
+            $sentencia = $this->db->prepare("SELECT * FROM producto LIMIT $desde,$productoPorPagina");
+            $sentencia->execute();
+            return $sentencia->fetchAll(PDO::FETCH_OBJ);
+        }
 }  
 ?>
