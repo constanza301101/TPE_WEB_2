@@ -2,6 +2,7 @@
     require_once 'Controller/ProductsController.php';
     require_once 'Controller/MarksController.php';
     require_once 'Controller/LoginController.php';
+    require_once 'Controller/UserController.php';
     require_once 'RouterClass.php';
     
     // CONSTANTES PARA RUTEO
@@ -19,9 +20,16 @@
     $r->addRoute("itemDetail/:ID", "GET", "ProductsController", "ItemDetail");
     //LOGIN
     $r->addRoute("login", "GET", "LoginController", "Login");
+    $r->addRoute("register", "GET", "LoginController", "Register");
+    $r->addRoute("newUser", "POST", "LoginController", "NewUser");
     $r->addRoute("verify", "POST", "LoginController", "VerifyUser");
     $r->addRoute("admin", "GET", "LoginController", "ShowAdmin");
     $r->addRoute("logout", "GET", "LoginController", "Logout");
+    //ADMIN USER
+    $r->addRoute("adminUsers", "GET", "UserController", "SowUsers");
+    $r->addRoute("editUser/:ID", "GET", "UserController", "EditUser");
+    $r->addRoute("updateUser/:ID", "POST", "UserController", "UpdateUser");
+    $r->addRoute("deleteUser/:ID", "GET", "UserController", "DeleteUser");
     //PRODUCTOS
     $r->addRoute("insert", "POST", "ProductsController", "InsertProduct");
     $r->addRoute("delete/:ID", "GET", "ProductsController", "DeleteProduct"); 

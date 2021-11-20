@@ -64,6 +64,11 @@ li a, p.label a{
 .menu li {
     display: inline-block;
     width:34%;
+    margin: auto;
+}
+
+.menu li.botones_admin {
+    margin: auto;
 }
 
 .menu li:hover{
@@ -74,7 +79,10 @@ li a, p.label a{
 .banner{
     width: 100%;
 }
-
+/*IMAGEN DEL PRODUCTO*/
+.img{
+    width: 200px;
+}
 /*PIE DE LA PÁGINA*/
 .contenedortarjetas{
     background-image: url(../images/fondomármolnegro.jpg);
