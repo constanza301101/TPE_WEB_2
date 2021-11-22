@@ -1,3 +1,4 @@
+ 
 {include file="header.tpl"}
 <!--HTML EDITAR PRODUCTO-->
 <h1>editar producto</h1>
@@ -6,11 +7,12 @@
     <input class="input" type="number" name="edit_price" placeholder="precio" value="{$producto->precio}" required>
     <input class="input" type="number" name="edit_stock" placeholder="stock" value="{$producto->stock}" required>
     <input class="input" type="text" name="edit_description" placeholder="descripción" value="{$producto->descripcion}" required>
-    <input class="btn" type="file" name="edit_file" id="imageToUpload"  required><button class="btn">Eliminar imagen</button>
+
+ <input class="btn" type="file" name="edit_file" id="imageToUpload" >
+
     <select name="select_brand">
         {foreach from=$marks item=mark}
             {if $mark->id_marca == $producto->id_marca}
-                <option selected="{$mark->id_marca}">{$mark->marca}</option>
                 <option selected="{$mark->id_marca}" value="{$mark->id_marca}">{$mark->marca}</option>
             {else}
                 <option value="{$mark->id_marca}">{$mark->marca}</option>

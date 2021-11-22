@@ -9,13 +9,16 @@
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
     define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
     define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
+    
     $r = new Router();
+
     // rutas
     //HOME
-    $r->addRoute("home", "GET", "ProductsController", "Home");
+    $r->addRoute("home/:ID", "GET", "ProductsController", "Home");
     $r->addRoute("mark", "GET", "MarksController", "HomeMarks");
     $r->addRoute("filterMark", "POST", "ProductsController", "FilterProductsByMark");
     $r->addRoute("itemDetail/:ID", "GET", "ProductsController", "ItemDetail");
+    $r->addRoute("search", "POST", "ProductsController", "SearchItem");
     //LOGIN
     $r->addRoute("login", "GET", "LoginController", "Login");
     $r->addRoute("register", "GET", "LoginController", "Register");
@@ -39,6 +42,8 @@
     $r->addRoute("editUser/:ID", "GET", "UserController", "EditUser");
     $r->addRoute("updateUser/:ID", "POST", "UserController", "UpdateUser");
     $r->addRoute("deleteUser/:ID", "GET", "UserController", "DeleteUser");
+    //ELIMINA IMAGEN 
+    $r->addRoute("deleteImg/:ID", "GET", "ProductsController", "DeleteImg");
     //Ruta por defecto.
     $r->setDefaultRoute("ProductsController", "Home");
     //run

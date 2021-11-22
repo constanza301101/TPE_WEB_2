@@ -1,10 +1,9 @@
 <?php
-require_once 'RouterClass.php';
-require_once 'api/ApiCommentsController.php';
-
-// instacio el router
-$router = new Router();
-
+    require_once 'RouterClass.php';
+    require_once 'Api/ApiCommentController.php';
+ // instacio el router
+ $router = new Router();
+ 
 // armo la tabla de ruteo de la API REST
 $router->addRoute('comments', 'GET', 'ApiCommentsController', 'GetComments');
 $router->addRoute('comments/:ID', 'GET', 'ApiCommentsController', 'GetComent');
@@ -13,7 +12,7 @@ $router->addRoute('comments/:ID', 'DELETE', 'ApiCommentsController', 'DeleteComm
 $router->addRoute('comments', 'POST', 'ApiCommentsController', 'InsertComment');
 
 
-$router->addRoute('comments/:ID', 'PUT', 'ApiCommentsController', 'UpdateComment');
+$router->addRoute('comments/:ID', 'PUT', 'ApiCommentController', 'UpdateComment');
 
 
  //run
