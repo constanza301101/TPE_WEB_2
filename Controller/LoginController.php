@@ -63,7 +63,7 @@ class LoginController{
         header("Location: ".LOGIN);
 
     }
-    //VEO SI ESTA LOGGEADO
+    //VEO SI ESTA LOGGEADO Y SI ES ADMIN
     function checkLoggedIn(){
         session_start();
         if(isset($_SESSION['EMAIL']) && $_SESSION['ADMIN'] == 1){
@@ -72,7 +72,15 @@ class LoginController{
             return false;
         }
         }
-     
+      //VEO SI ESTA LOGGEADO Y ES USUARIO
+    function checkLoggedInUser(){
+        session_start();
+        if(isset($_SESSION['EMAIL']) && $_SESSION['ADMIN'] == 0){
+            return true;
+        }else{
+            return false;
+        }
+    } 
     //VERIFICO MI USUARIO
     function VerifyUser(){
         $user = $_POST["input_username"];
