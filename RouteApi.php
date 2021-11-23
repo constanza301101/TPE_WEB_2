@@ -4,14 +4,12 @@
  // instacio el router
  $router = new Router();
  
-// armo la tabla de ruteo de la API REST
+/* armo la tabla de ruteo de la API REST
 $router->addRoute('comments', 'GET', 'ApiCommentsController', 'GetComments');
 $router->addRoute('comments/:ID', 'GET', 'ApiCommentsController', 'GetComent');
-$router->addRoute('comments/:ID', 'DELETE', 'ApiCommentsController', 'DeleteComment');
-
-$router->addRoute('comments', 'POST', 'ApiCommentsController', 'InsertComment');
-
-
+$router->addRoute('comments', 'POST', 'ApiCommentController', 'InsertComment');
+$router->addRoute('comments/:ID', 'DELETE', 'ApiCommentController', 'DeleteComment');
+*/
 $router->addRoute('comments/:ID', 'PUT', 'ApiCommentController', 'UpdateComment');
 
 
