@@ -49,5 +49,5 @@
 <div>
     {include file="vue/comments.vue"}
 </div>
-<script src="../js/comments.js"></script>
+<script src="/js/app_comments.js"></script>
 {include file="footer.tpl"}

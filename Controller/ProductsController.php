@@ -159,8 +159,10 @@
             $mark = $this->marksModel->GetMarkById($mark_id);
             if($logeado){
                 $user = $_SESSION['EMAIL'];
-                $this->view->ShowItemDetail($product, $mark, $user);
-            }else{
+                $Iduser = $_SESSION['ID'];
+                $this->view->ShowItemDetail($product, $mark, $user, $Iduser)
+            }
+            else{
                 $this->view->ShowItemDetail($product, $mark);
             }
         }

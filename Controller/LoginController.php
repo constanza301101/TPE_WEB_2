@@ -22,7 +22,7 @@ class LoginController{
     }
     //LLAMA AL LOGIN
     function Login(){
-        $logeado = $this->checkLoggedIn();
+        $logeado = $this->CheckLoggedIn();
         if($logeado){
             $this->productView->ShowLocation('admin');
         } else {
@@ -64,7 +64,7 @@ class LoginController{
 
     }
     //VEO SI ESTA LOGGEADO Y SI ES ADMIN
-    function checkLoggedIn(){
+    function CheckLoggedIn(){
         session_start();
         if(isset($_SESSION['EMAIL']) && $_SESSION['ADMIN'] == 1){
             return true;
@@ -73,7 +73,7 @@ class LoginController{
         }
         }
       //VEO SI ESTA LOGGEADO Y ES USUARIO
-    function checkLoggedInUser(){
+    function  CheckLoggedInUser(){
         session_start();
         if(isset($_SESSION['EMAIL']) && $_SESSION['ADMIN'] == 0){
             return true;
@@ -84,18 +84,19 @@ class LoginController{
     //VERIFICO MI USUARIO
     function VerifyUser(){
         $user = $_POST["input_username"];
-        $pass = $_POST["input_password"];
+        $password= $_POST["input_password"];
 
         if(isset($user)){
             $userFromDB = $this->model->GetUser($user);
             if(isset($userFromDB) && $userFromDB){
                 // Existe el usuario
-                if (password_verify($pass, $userFromDB->password)){
+                if (password_verify($password, $userFromDB->password)){
                     session_start();
                     if(isset($_SESSION['LAST_ACTIVITY']) && (time()-$_SESSION['LAST_ACTIVITY']>1000)){
                         header("Location: ".LOGOUT);
                     }
                     $_SESSION["EMAIL"] = $userFromDB->email;
+                    $_SESSION["ID"] = $userFromDB->id;
                     $_SESSION["ADMIN"] = $userFromDB->admin;
                     $_SESSION['LAST_ACTIVITY'] = time();
                     if($userFromDB->admin == 1){
@@ -114,7 +115,7 @@ class LoginController{
     }
     //MUESTRA LA PAGUINA DONDE SE PUEDE MODIFICAR LOS PRODUCTOS Y MARCAS(esta función es llamada action 'admin';)
     function ShowAdmin(){
-        $logeado = $this->checkLoggedIn();
+        $logeado = $this->CheckLoggedIn();
         if($logeado){
             $marks = $this->marksModel->GetMarks();
             $products = $this->modelProducts->GetProducts();
