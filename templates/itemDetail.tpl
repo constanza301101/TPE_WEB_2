@@ -1,6 +1,15 @@
 {include file="header.tpl"}
 <!--TABLA CON TODOS LOS PRODUCTOS-->
-<h3>{$usuario}</h3>
+{if $user}
+    <div class="contenedor_logout_user">
+        <h3>{$user}</h3>
+        <!--BOTON QUE CIERRA LA SESIÓN-->
+        <div>
+            <p class="cerar_sesion_user">cerrar sesión</p>
+            <button class="btn_logout_user" type="button"><a href="logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></button>
+        </div>
+    </div>
+{/if}
 <section class="contenedor_table">
     <table class="table">
         <caption class="titulo_table">detalle de producto</caption>
@@ -15,14 +24,25 @@
         </thead>
         <tbody>
                 <tr>
-                    <td>{$producto->nombre}</td>
-                    <td>{$producto->precio}</td>
-                    <td>{$producto->stock}</td>
-                    <td>{$producto->descripcion}</td>
+                    <td>{$product->nombre}</td>
+                    <td>{$product->precio}</td>
+                    <td>{$product->stock}</td>
+                    <td>{$product->descripcion}</td>
                     <td>{$mark->marca}</td>
+                </tr>
+                <tr>
+                    <td class="td_imag" colspan="5">
+                        {foreach from=$images item=image}
+                            <img class="img" src="{$image->imagen}">
+                        {/foreach}
+                    </td>
                 </tr>
         </tbody>
     </table>
+    <!--PROMEDIO DE VALORACIÓN-->
+    <div>
+        {include file="vue/average.vue"}
+    </div>
     <!--TABLA DE LA MARCA DEL PRODUCTO-->
      <table class="table">
         <caption class="titulo_table">marca {$mark->marca}</caption>
@@ -36,18 +56,16 @@
                 <tr>
                     <td>{$mark->marca}</td>
                     <td>{$mark->categoria}</td>
-                </tr>   
+                </tr>
         </tbody>
     </table>
-</section> 
-{include file="comment.tpl"}
 </section>
-{if $usuario}
-    {include file="comment.tpl"}
-{/if}
-
+<!--FORMULARIO PARA AGREGAR UN COMENTARIO-->
+{include file="comment.tpl"}
+<!--COMENTARIOS-->
 <div>
     {include file="vue/comments.vue"}
 </div>
-<script src="/js/app_comments.js"></script>
+
+<script src="js/app_comments.js"></script>
 {include file="footer.tpl"}

@@ -22,9 +22,8 @@ body{
 .contenedor_compaginacion .logoencabezado{
     width: 40%;
     height: auto;
-    text-align: center;    
+    text-align: center;
 }
-
 
 /*BARRA DE NAVEGACIÓN*/
 .botones .link{
@@ -36,7 +35,8 @@ body{
     display: block;
     height: 100%;
 }
-/*NAV*/
+
+/*NAV DEL ADMINISTRADOR PRODUCTOS/USUARIOS*/
 .botoneratexto{
     text-align: center;
 }
@@ -57,7 +57,7 @@ body{
     width: 100%;
 }
 
-.menu  .botones:hover{
+.menu .botones:hover{
     background-color: rgb(211, 211, 211);
 }
 
@@ -65,10 +65,12 @@ body{
 .banner{
     width: 100%;
 }
+
 /*IMAGEN DEL PRODUCTO*/
 .img{
     width: 100px;
 }
+
 /*PIE DE LA PÁGINA*/
 .contenedortarjetas{
     background-image: url(../images/fondomármolnegro.jpg);
@@ -104,22 +106,26 @@ body{
     padding: 10px;
 }
 
+textarea{
+    resize: none;
+}
+
 @media only screen and (min-width: 600px){
-    
+
     .logoencabezado{
         width: 70%;
     }
 
     /*BOTONERA*/
     .botones .link{
-         font-size: 20px;
+        font-size: 20px;
     }
 
     .menu .botones {
         height: 50px;
         padding-top: 2%;
     }
-    
+
     /*PIE DE LA PÁGINA*/
     .icontarjetas{
         padding: 1% 1.6%;
@@ -133,24 +139,25 @@ body{
         width: 30px;
         height: 30px;
     }
- /*COMPAGINACION*/
- .navCompaginacion{
-    display: flex;
-    align-items: center;
-    width: 10%;
-    margin: 1% auto;
-}
 
-.liCompagnacion{
-    margin: 2% auto;
-    list-style: none;
-}
+    /*COMPAGINACION*/
+    .navCompaginacion{
+        display: flex;
+        align-items: center;
+        width: 10%;
+        margin: 1% auto;
+    }
 
-.linkCompaginacion{
-   color: black;
-}
+    .liCompagnacion{
+        margin: 2% auto;
+        list-style: none;
+    }
 
-.marcado{
-    color: blue;
-}
+    .linkCompaginacion{
+       color: black;
+    }
+
+    .marcado{
+        color: blue;
+    }
 }
